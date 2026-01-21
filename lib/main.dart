@@ -1,19 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:haber_uygulamasi/haber_kedi.dart';
 import 'package:haber_uygulamasi/haber_kitap.dart';
+import 'package:haber_uygulamasi/onboarding_screen.dart';
+import 'package:haber_uygulamasi/splash_screen.dart';
 
 void main() {
   runApp(const HaberSayfasi());
 }
+
 
 class HaberSayfasi extends StatelessWidget {
   const HaberSayfasi({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: AnaSayfa(),
+      initialRoute: "/splash",
+      routes:{
+        
+        "/splash": (context) => const SplashScreen(),
+        "/onboarding":(context) => OnboardingScreen(),
+        "/HomePage":(context)=> const AnaSayfa(),
+      },
+     
     );
   }
 }
@@ -177,5 +187,7 @@ class AnaSayfa extends StatelessWidget {
         ),
       ),
     );
+    
   }
+  
 }
